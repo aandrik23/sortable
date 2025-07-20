@@ -3,14 +3,43 @@
 
 <head>
 	<meta charset="UTF-8">
-	<title>Superhero Surveillance</title>
+	<title>Superhero Surveillance Table</title>
 	<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-	<h1>Superhero Surveillance System</h1>
-	<div id="heroes-container">Loading data...</div>
-	<script src="fetch.js"></script>
+	<h1>Superhero Surveillance</h1>
+
+	<label for="pageSize">Heroes per page:</label>
+	<select id="pageSize">
+		<option value="10">10</option>
+		<option value="20" selected>20</option>
+		<option value="50">50</option>
+		<option value="100">100</option>
+		<option value="all">All</option>
+	</select>
+
+	<div id="pagination"></div>
+
+	<table id="heroTable">
+		<thead>
+			<tr>
+				<th>Icon</th>
+				<th>Name</th>
+				<th>Full Name</th>
+				<th>Powerstats</th>
+				<th>Race</th>
+				<th>Gender</th>
+				<th>Height</th>
+				<th>Weight</th>
+				<th>Place of Birth</th>
+				<th>Alignment</th>
+			</tr>
+		</thead>
+		<tbody></tbody>
+	</table>
+
+	<script type="module" src="js/main.js"></script>
 </body>
 
 </html>
