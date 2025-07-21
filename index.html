@@ -7,6 +7,7 @@
 	<link rel="stylesheet" href="css/style.css">
 	<link rel="stylesheet" href="css/sort.css">
 	<link rel="stylesheet" href="css/search.css">
+	<link rel="stylesheet" href="css/details.css">
 
 </head>
 
@@ -44,7 +45,19 @@
 		<tbody></tbody>
 	</table>
 
+	<div id="heroModal" class="modal hidden">
+  	<div class="modal-content" id="modalContent">
+    <span id="modalClose" class="close">&times;</span>
+    <!-- Hero details will be injected here -->
+  </div>
+</div>
+
+
+	<script type="module" src="js/details.js"></script>
 	<script type="module" src="js/main.js"></script>
+	<script type="module" src="js/renderTable.js"></script>
+
+
 </body>
 
 </html>
