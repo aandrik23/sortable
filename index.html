@@ -23,6 +23,56 @@
 
 	<input type="text" id="search" placeholder="Search heroes by name..." />
 
+	<button id="openFilters">Filters</button>
+	
+	<div id="filterModal" class="modal hidden">
+		<div class="modal-content">
+		  <h2>Filter Heroes</h2>
+	  
+		  <label>
+			Race:
+			<select id="filterRace">
+			  <option value="">Any</option>
+			</select>
+		  </label><br/>
+	  
+		  <label>
+			Gender:
+			<select id="filterGender">
+			  <option value="">Any</option>
+			  <option value="Male">Male</option>
+			  <option value="Female">Female</option>
+			</select>
+		  </label><br/>
+	  
+		  <label>
+			Height Range: <span id="heightMinValue">0</span> – <span id="heightMaxValue">300</span> cm
+			<input type="range" id="filterMinHeight" min="0" max="300" value="0" />
+			<input type="range" id="filterMaxHeight" min="0" max="300" value="300" />
+		  </label><br/>
+		  
+
+		  <label>
+			Weight Range: <span id="weightMinValue">0</span> – <span id="weightMaxValue">500</span> kg
+			<input type="range" id="filterMinWeight" min="0" max="500" value="0" />
+			<input type="range" id="filterMaxWeight" min="0" max="500" value="500" />
+		  </label><br/>
+	  
+		  <label>
+			Alignment:
+			<select id="filterAlignment">
+			  <option value="">Any</option>
+			  <option value="good">Good</option>
+			  <option value="bad">Bad</option>
+			  <option value="neutral">Neutral</option>
+			</select>
+		  </label><br/>
+	  
+		  <button id="applyFilters">Apply Filters</button>
+		  <button id="closeFilters">Close</button>
+		</div>
+	  </div>
+
 	<table id="heroTable">
 		<thead>
 			<tr>
