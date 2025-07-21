@@ -1,0 +1,25 @@
+/* sort.css */
+
+th::after {
+  content: " ⇅";
+  color: #666;
+  font-size: 14px;
+  margin-left: 4px;
+}
+
+th.sorted-asc::after {
+  content: " ▲";
+  color: crimson;
+}
+
+th.sorted-desc::after {
+  content: " ▼";
+  color: crimson;
+}
+
+.highlighted-column {
+  background-color: rgba(255, 0, 60, 0.05);
+  border-left: 3px solid crimson;
+}
+
+
