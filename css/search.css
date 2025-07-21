@@ -1,0 +1,26 @@
+/* Search bar styling */
+#search {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  border: 1px solid #444;
+  background: #1a1a1a;
+  color: #eee;
+  border-radius: 4px;
+}
+
+/* Zebra stripes for table rows */
+table tbody tr:nth-child(even) {
+  background-color: #1c1c1c;
+}
+table tbody tr:nth-child(odd) {
+  background-color: #222;
+}
+
+/* Hover effect on rows */
+table tbody tr:hover {
+  background-color: #333;
+  cursor: pointer;
+}

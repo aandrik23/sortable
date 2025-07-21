@@ -1,4 +1,6 @@
 import { heroesData, currentPage, pageSize } from './state.js';
+import { showHeroDetails } from './details.js';
+
 
 const tableBody = document.querySelector("#heroTable tbody");
 
@@ -29,6 +31,20 @@ export function renderTable() {
       <td>${hero.biography?.alignment || "—"}</td>
     `;
 
+	const img = new Image();
+	img.src = hero.images.lg; // preloads the big image in cache
+
+
 		tableBody.appendChild(row);
 	}
+
+	
+	document.querySelectorAll("#heroTable tbody tr").forEach((row, index) => {
+		row.addEventListener("click", () => {
+			const hero = currentHeroes[index]; // use current page's heroes
+			showHeroDetails(hero);
+		});
+	});
 }
+
+

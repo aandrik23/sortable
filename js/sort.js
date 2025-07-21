@@ -1,56 +1,57 @@
-import { heroesData, sortColumn, sortDirection } from './state.js';
+import { heroesData, sortColumn, sortDirection, setHeroesData } from './state.js';
+
+export function sortHeroes() {
+	if (!sortColumn) return;
+
+	const sorted = [...heroesData].sort((a, b) => {
+		let valA = getValue(a, sortColumn);
+		let valB = getValue(b, sortColumn);
+
+		const isMissingA = valA === null || valA === undefined || valA === "" || valA === "-";
+		const isMissingB = valB === null || valB === undefined || valB === "" || valB === "-";
+
+		// Always move missing values to the bottom
+		if (isMissingA && !isMissingB) return 1;
+		if (!isMissingA && isMissingB) return -1;
+		if (isMissingA && isMissingB) return 0;
+
+		// Try numeric sort if values are like "180 cm" or "78 kg"
+		const numA = extractNumber(valA);
+		const numB = extractNumber(valB);
+
+		if (!isNaN(numA) && !isNaN(numB)) {
+			return (numA - numB) * sortDirection;
+		}
+
+		// Fallback to string comparison
+		return valA.toString().localeCompare(valB.toString()) * sortDirection;
+	});
+
+	setHeroesData(sorted);
+}
+
 
 function getValue(hero, column) {
 	switch (column) {
-		case "name":
-			return hero.name;
-		case "fullName":
-			return hero.biography?.fullName;
-		case "powerstats":
-			// Not sortable — return average power
-			const stats = hero.powerstats || {};
-			const values = Object.values(stats).filter(val => !isNaN(val));
-			return values.length ? values.reduce((a, b) => a + b, 0) / values.length : null;
-		case "race":
-			return hero.appearance?.race;
-		case "gender":
-			return hero.appearance?.gender;
-		case "height":
-			return parseNumber(hero.appearance?.height?.[1]);
-		case "weight":
-			return parseNumber(hero.appearance?.weight?.[1]);
-		case "placeOfBirth":
-			return hero.biography?.placeOfBirth;
-		case "alignment":
-			return hero.biography?.alignment;
-		default:
-			return null;
+		case "Name": return hero.name;
+		case "Full Name": return hero.biography.fullName;
+		case "Race": return hero.appearance.race;
+		case "Gender": return hero.appearance.gender;
+		case "Height": return hero.appearance.height?.[1];
+		case "Weight": return hero.appearance.weight?.[1];
+		case "Place of Birth": return hero.biography.placeOfBirth;
+		case "Alignment": return hero.biography.alignment;
+		default: return "";
 	}
 }
 
-function parseNumber(str) {
-	if (!str) return null;
-	const num = parseFloat(str.replace(/[^\d.]/g, ""));
-	return isNaN(num) ? null : num;
+function extractNumber(value) {
+	const match = typeof value === "string" && value.match(/[\d.]+/);
+	return match ? parseFloat(match[0]) : NaN;
 }
 
-export function sortHeroes() {
-	heroesData.sort((a, b) => {
-		const valA = getValue(a, sortColumn);
-		const valB = getValue(b, sortColumn);
 
-		// Handle missing values: always go to the bottom
-		if (valA == null && valB == null) return 0;
-		if (valA == null) return 1;
-		if (valB == null) return -1;
 
-		// Numeric sort if both are numbers
-		if (typeof valA === "number" && typeof valB === "number") {
-			return (valA - valB) * sortDirection;
-		}
 
-		// Otherwise, string compare
-		return valA.toString().localeCompare(valB.toString()) * sortDirection;
-	});
-}
+
 
