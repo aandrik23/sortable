@@ -13,7 +13,7 @@
 
 <body>
 	<h1>Superhero Surveillance</h1>
-
+	<div class="filter-bar">
 	<label for="pageSize">Heroes per page:</label>
 	<select id="pageSize">
 		<option value="10">10</option>
@@ -25,9 +25,9 @@
 
 	<div id="pagination"></div>
 
-	<input type="text" id="search" placeholder="Search heroes by name..." />
 
-	<button id="openFilters">Filters</button>
+	<button id="openFilters">🛠️ Filters</button>
+	</div>
 	
 	<div id="filterModal" class="modal hidden">
 		<div class="modal-content">
@@ -99,6 +99,9 @@
   	<div class="modal-content" id="modalContent">
     <span id="modalClose" class="close">&times;</span>
     <!-- Hero details will be injected here -->
+
+	<input type="text" id="search" placeholder="Search heroes by name..." />
+
   </div>
 </div>
 

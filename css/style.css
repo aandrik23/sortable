@@ -129,3 +129,114 @@ th.sorted-desc::after {
   display: block;
   margin: 10px 0 5px;
 }
+
+/* Layout */
+.filter-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  gap: 10px;
+}
+
+.filter-bar label {
+  margin-right: 6px;
+}
+
+.filter-bar select {
+  margin-right: auto;
+}
+
+/* Filter button style */
+#openFilters {
+  background-color: #222;
+  color: white;
+  border: 1px solid #444;
+  border-radius: 20px;
+  padding: 10px 18px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(255, 0, 0, 0.3);
+  transition: background-color 0.3s, transform 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+#openFilters:hover {
+  background-color: crimson;
+  transform: translateY(-1px);
+}
+
+.filter-icon {
+  font-size: 18px;
+}
+
+/* Modal button style */
+.modal-content button {
+  margin: 8px 5px 0 0;
+  padding: 10px 16px;
+  font-size: 15px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  background-color: #444;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  transition: background-color 0.2s ease;
+}
+
+.modal-content button:hover {
+  background-color: crimson;
+}
+
+/* Modal title */
+.modal-content h2 {
+  font-size: 22px;
+  color: crimson;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+#pagination {
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
+}
+
+#pagination button {
+  background-color: #333;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.2s;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+#pagination button:hover {
+  background-color: crimson;
+}
+
+#pageSize {
+  background-color: #222;
+  color: white;
+  border: 1px solid #444;
+  border-radius: 20px;
+  padding: 8px 14px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(255, 0, 0, 0.2);
+  transition: background-color 0.3s, transform 0.2s;
+  appearance: none; 
+}
+
+#pageSize:hover {
+  background-color: crimson;
+  transform: translateY(-1px);
+}
