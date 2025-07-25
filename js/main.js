@@ -46,10 +46,12 @@ function parseNumber(str) {
 	  return true;
 	});
   
-	setHeroesData(filtered);
-	setCurrentPage(1);
-	renderTable();
-	renderPagination();
+		setHeroesData(filtered);
+		sortHeroes();
+		setCurrentPage(1);
+		renderTable();
+		renderPagination();
+
   }
   
 export function populateRaceDropdown() {

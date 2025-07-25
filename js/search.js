@@ -17,8 +17,10 @@ export function setupSearch() {
 		);
 
 		setHeroesData(filtered);
+		sortHeroes();
 		renderTable();
 		renderPagination();
+
 	}, 150); // delay search by 150ms to reduce CPU usage
 });
 }
